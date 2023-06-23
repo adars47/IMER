@@ -1,3 +1,32 @@
 <h6>DASHBOARD</h1>
 
 <h3> Welcome {{name}}</h3>
+
+<table>
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Notify On</th>
+        <th>Created At</th>
+        <th>Options</th>
+    </tr>
+</thead>
+
+<tbody>
+    {{#each listeners}}
+    <tr>
+        <td>{{name}}</td>
+        <td>
+            {{#each notify}}
+                {{this}}
+            {{/each}}
+        </td>
+        <td>{{createdAt}}</td>
+        <td>
+            <a class="waves-effect waves-light btn-small" href="/view/{{_id}}">view</a>
+            <a class="waves-effect waves-light btn-small" href="/edit_listener/{{_id}}">edit</a>
+            <a class="waves-effect waves-light btn-small" href="/delete/{{_id}}">delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</tbody>
